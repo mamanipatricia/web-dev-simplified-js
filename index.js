@@ -193,3 +193,19 @@ const persona = {
 
 // persona[propertyName] = firstName3;
 console.log("persona", persona);
+
+// 5. Default parameters
+
+function greet(
+  firstName,
+  lastName,
+  { salutation = "Hi,", suffix = "Mr." } = {}
+) {
+  //   salutation = salutation || "Hi";
+  console.log(`${salutation} ${suffix} ${firstName} ${lastName}`);
+}
+
+// greet("Kyle", "Cook", "HI");
+greet("Kyle", "Cook", { suffix: "MR.", salutation: "Hello," }); // works
+greet("Kyle", "Cook", {}); // works
+greet("Kyle", "Cook"); // doesn't works, cannot destructuring of undefined, instead put an empty brackets to the parameters in the obj
