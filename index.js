@@ -96,7 +96,7 @@ function addAndMultiply2({ a: a1, b: b1 = 10 }) {
 const [sum2, product2] = addAndMultiply2({ a: 2 });
 console.log("sum2:", sum2, "product:", product2);
 
-// SPREAD AND REST OPERATOR
+// 2. SPREAD AND REST OPERATOR
 const arr = ["A", "B", "C", "D", "E", "F"];
 
 const person1 = {
@@ -165,6 +165,31 @@ console.log("person2", person2);
 
 // TODO: understand this incredibly important
 
+// 3. ENHANCED OBJECT LITERAL
+const propertyName = "name";
+const firstName3 = "Antonio";
+const index = 1;
+const age3 = 25;
+const sayHi = function () {
+  console.log("HI...");
+};
 
+const persona = {
+  firstName3, // don't assign the value property when it is equal to the key property
+  [propertyName]: firstName3,
+  age3: age3,
+  [`age${index}`]: age3,
+  // 1st way
+  sayHi: sayHi,
+  // 2nd way
+  sayBye: function () {
+    console.log("Bye...");
+  },
+  // 3th way
+  sayTakeCare() {
+    console.log("TakeCare!");
+  },
+};
 
-
+// persona[propertyName] = firstName3;
+console.log("persona", persona);
