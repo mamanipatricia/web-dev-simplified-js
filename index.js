@@ -209,3 +209,28 @@ function greet(
 greet("Kyle", "Cook", { suffix: "MR.", salutation: "Hello," }); // works
 greet("Kyle", "Cook", {}); // works
 greet("Kyle", "Cook"); // doesn't works, cannot destructuring of undefined, instead put an empty brackets to the parameters in the obj
+
+// 6. Null coalescing
+// Null coalescing =>  ?? for null/undefined
+
+function greet1(firstName, lastName) {
+  //   lastName = lastName || "Smith"; // this default parameter works for all falsy values but I want only for null/undefined
+  lastName = lastName ?? "Smith";
+  console.log(`${firstName} ${lastName}`);
+}
+
+greet1("Kyle", "Cook");
+greet1("Kyle", undefined);
+greet1("Kyle", null);
+greet1("Kyle", 0);
+greet1("Kyle", "");
+greet1("Kyle"); // it is sent undefined as default value
+
+/* quick explanation of "??"
+    variable ?? variable1  <-- this one is returned if it is null or undefined, otherwise the "variable" is used as a default
+       ^
+    this is checked whether or not is null or undefined
+*/
+// example:
+console.log((undefined || null) ?? (false && (true || false)));
+console.log(undefined || null);
