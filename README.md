@@ -6,3 +6,6 @@
 2. Destructuring
 - arrays
 - objects
+3. Spread and Rest Operator
+- arrays and objects
+- examples
