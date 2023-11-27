@@ -318,3 +318,35 @@ console.log(mapLetters); // Map(4) { 2 => 'B', 3 => 'C', 4 => 'D', 5 => 'E' }
 console.log(mapLetters.clear()); // to completely clear the map
 console.log(mapLetters); // Map(0) {}
 
+// set
+console.log("~~~~~~~~SET~~~~~~~~");
+
+const set = new Set([1, 2, 3, 4, 4, 4]); // the elements must be unique
+set.add(5); // adds to the arr
+set.add(4); // do not add to the arr
+console.log("set:", set);
+// we cannot get an item individually by index like set[0] from a set instead loop through the arr
+console.log("set-[1]", set[1]);
+set.forEach((value) => {
+  console.log("set-value:", value);
+});
+
+// to know if there is that value => 2
+console.log(set.has(2)); // true
+// delete the value
+console.log(set.delete(1));
+console.log("set:", set);
+
+// size
+console.log("size:", set.size);
+// clear the set arr
+console.log(set.clear()); // Set(0) {}
+console.log("set:", set);
+
+// removing dups
+function removeDups(arr) {
+  return [...new Set(arr)]; // converting to an arr, and returning non duplicated values with Set and spread op
+}
+
+const r = removeDups([1, 2, 3, 4, 5, 6, 6, 6, 6]);
+console.log("removedDups:", r);
