@@ -27,3 +27,7 @@
 7. Optional Chaining
 
 - examples
+
+8. Maps
+
+- examples

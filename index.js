@@ -269,3 +269,52 @@ printStreet(patty);
 callSayHi(patty);
 printHobbyOne(undefined);
 printHobbyOne(patty);
+
+// 8. Maps
+console.log("~~~~~~~~~~~Maps~~~~~~~~~~~`");
+// [[key, value], [key, value]] the key can be anything -> obj, arr
+// const map = new Map();
+const map = new Map([
+  //   ["United States", "USD"],
+  [false, "USD"], // the key can also be a boolean value
+  [{ a: 1 }, "USD"], // the key is an obj, we can pointing from an object to a specific value, that's not you can do with normal objs
+  ["India", "Rupee"],
+]);
+
+console.log("map:", map);
+
+const CURRENCY_MAP = {
+  "United States": "USD",
+  India: "Rupee",
+};
+
+const currency = CURRENCY_MAP["India"];
+
+console.log("currency:", currency);
+
+const user = { name: "Lucas" };
+
+const map1 = new Map([[user, { age: 3 }]]);
+const pet = { cat: "Lucas" };
+const map2 = new Map([[pet, { age: 3 }]]);
+console.log("map1:", map1);
+console.log("MAP-USER:", map1.get(user));
+console.log("MAP-PET:", map2.get(pet));
+
+// map functions => get, set, has(to check if exists), delete, clear (to empty the map
+const mapLetters = new Map([
+  [1, "A"],
+  [2, "B"],
+  [3, "C"],
+  [4, "D"],
+]);
+console.log(mapLetters.set(5, "E"));
+console.log(mapLetters.get(1));
+console.log(mapLetters.get(5));
+console.log(mapLetters);
+console.log(mapLetters.has(6)); // false
+console.log(mapLetters.delete(1));
+console.log(mapLetters); // Map(4) { 2 => 'B', 3 => 'C', 4 => 'D', 5 => 'E' }
+console.log(mapLetters.clear()); // to completely clear the map
+console.log(mapLetters); // Map(0) {}
+
