@@ -352,6 +352,7 @@ const r = removeDups([1, 2, 3, 4, 5, 6, 6, 6, 6]);
 console.log("removedDups:", r);
 
 // Symbol
+console.log("~~~~~~~~Symbol~~~~~~~~~");
 const sym1 = Symbol("Name");
 const person4 = {
   age: 25,
@@ -393,6 +394,43 @@ if (logLevel == LOG_LEVEL.DEBUG) {
   console.log("logLevel:", logLevel); // Symbol(debug)
 }
 
-// Generators and iterators
+// 11. Generators and iterators
+
+// 12. Getter and setters
+console.log("~~~~~~~Getter and setters~~~~~~~");
+const person5 = {
+  firstName: "Patricia",
+  lastName: "Mamani",
+  //   fullName() {
+  //     return this.firstName + " " + this.lastName;
+  //   },
+  get fullName() {
+    return `${this.firsName} ${this.lastName}`;
+  },
+  set fullName(value) {
+    [this.firstName, this.lastName] = value.split(" "); // using destructuring
+  },
+};
+
+person.fullName = "Jose Perez";
+console.log("person5:", person5);
+
+// another example for private properties
+const p = {
+  _username: "Web Dev Simplified",
+  get username() {
+    return this._username;
+  },
+  set username(username) {
+    if (username.length > 5) {
+      this._username = username;
+    }
+  },
+};
+
+// set
+p.username = "Patricia";
+// get
+console.log("get username:", p.username);
 
 // Bind
