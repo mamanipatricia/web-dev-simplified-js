@@ -35,3 +35,17 @@
 9. Set
 
 - examples
+
+10. Symbol
+
+- examples
+  [skipped]
+
+11. Generators and iterators
+
+- examples
+  [skipped]
+
+12. Bind
+
+- examples

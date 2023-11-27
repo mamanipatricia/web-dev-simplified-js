@@ -350,3 +350,49 @@ function removeDups(arr) {
 
 const r = removeDups([1, 2, 3, 4, 5, 6, 6, 6, 6]);
 console.log("removedDups:", r);
+
+// Symbol
+const sym1 = Symbol("Name");
+const person4 = {
+  age: 25,
+  [sym1]: "Patty",
+};
+console.log("person4", person4);
+
+console.log(Object.entries(person4));
+// you cannot see the Symbol in the output - cause this Symbols are hidden they are not accessible except for one specific function = getOwnPropertySymbols()
+Object.entries(person4).forEach((key, value) => {
+  console.log(key, value);
+});
+// you cannot see the Symbol in the output too
+console.log(JSON.stringify(person4));
+// is visible for function = getOwnPropertySymbols()
+console.log("getOwnPropertySymbols:", Object.getOwnPropertySymbols(person4)); // [ Symbol(Name) ]
+
+// SYMBOLS ARE SOME INTERNAL IMPLEMENTATIONS DETAILS THAT ARE NOT IMPORTANT FOR USERS
+
+const LOG_LEVEL1 = {
+  DEBUG_LEVEL: "debug",
+  INFO_LEVEL: "info",
+  WARNING_LEVEL: "warning",
+  ERROR_LEVEL: "error",
+};
+
+// with Symbols
+const LOG_LEVEL = {
+  // no matter what the Symbol has as value, it will always be unique
+  DEBUG: Symbol("debug"),
+  INFO: Symbol("info"),
+  WARNING: Symbol("warning"),
+  ERROR: Symbol("error"),
+};
+
+const logLevel = LOG_LEVEL.DEBUG;
+
+if (logLevel == LOG_LEVEL.DEBUG) {
+  console.log("logLevel:", logLevel); // Symbol(debug)
+}
+
+// Generators and iterators
+
+// Bind
