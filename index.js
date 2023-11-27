@@ -234,3 +234,38 @@ greet1("Kyle"); // it is sent undefined as default value
 // example:
 console.log((undefined || null) ?? (false && (true || false)));
 console.log(undefined || null);
+
+// 7. Optional Chaining
+// Optional Chaining => ?   checks null or undefined // question mark and period
+console.log("~~~~~~~~7. Optional Chaining~~~~~~~~~`");
+const patty = {
+  name: "Patty",
+  age: 29,
+  address: {
+    street: "123 Main St",
+  },
+  //   sayHiPatty() {
+  //     console.log("Hi Patty");
+  //   },
+  //   sayHiPatty: "say Hi Patty variable", // (***)   comment this to work properly the optional chaining
+  hobbies: ["Bowling", "Weight lifting"],
+};
+
+function printStreet(person) {
+  // if person is null/undefined it immediately stops executing person = null/undefined then address?.street is not being executed
+  console.log(person?.address?.street);
+}
+
+function callSayHi(person) {
+  // imagine sayHiPatty is a variable, see we have sayHiPatty defined as a string and it passes "?" and then it wants to executes but it returns
+  // an error like person?.sayHiPatty is not a function (***) // uncomment above sayHiPatty: "say Hi Patty variable" to work properly
+  person?.sayHiPatty?.(); // wth! with this =>   .sayHiPatty?.() // when there is no sayHiPatty it stop executing the function
+}
+function printHobbyOne() {
+  console.log(patty?.hobbies?.[0]);
+}
+
+printStreet(patty);
+callSayHi(patty);
+printHobbyOne(undefined);
+printHobbyOne(patty);
